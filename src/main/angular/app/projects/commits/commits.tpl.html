@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h3 class="modal-title">Commits</h3>
+</div>
+<div class="modal-body" style="height:400px; color:black; overflow-y: auto">
+<div class="row" ng-repeat="commit in commits">
+    <div class="repo commit-date">{{commit.commit.author.date}}</div>
+    <div class="repo commit-author">{{commit.commit.author.name}}:{{commit.commit.author.email}}</div>
+    <div class="repo commit-message"><b>Message:</b> {{commit.commit.message}}</div>
+    <div class="repo commit-author"><a ng-href="{{commit.commit.url}}">Commit Details</a></div>
+</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">Close</button>
+</div>

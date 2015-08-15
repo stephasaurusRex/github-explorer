@@ -1,0 +1,28 @@
+<div>
+    <h1>Find the most popular repos!</h1>
+    <h4>Click search to see the repositories for a GitHub organization.</h4>
+    <input type="text" class="form-control" style="width:200px; display:inline" placeholder="Github Organization" ng-model="projects.organization"/>
+    <input type="button" class="btn btn-primary"  ng-click="projects.searchRepos(organization)" value="Search">
+
+    <h4>Ordered By:</h4>
+
+    <div class="btn-group" >
+        <label class="btn btn-primary" ng-model="projects.radioModel" btn-radio="'-forks'">Popularity</label>
+        <label class="btn btn-primary" ng-model="projects.radioModel" btn-radio="'-open_issues_count'">Open Issue Count</label>
+        <label class="btn btn-primary" ng-model="projects.radioModel" btn-radio="'-watchers'">Most Watchers</label>
+    </div>
+
+    <div class="repo-group" ng-show="projects.repos.length > 0">
+        <div class="row" ng-repeat="repo in projects.repos | orderBy: projects.radioModel">
+            <!-- TODO: Refactor this into TESTABLE directive-->
+            <div class="repo repo-name">{{repo.full_name}}</div>
+            <div class="repo repo-forks">Forks: {{repo.forks}}</div>
+            <div class="repo repo-issues">Issues: {{repo.open_issues}} </div>
+            <div class="repo repo-watchers">Watchers: {{repo.watchers}}</div>
+            <div class="repo repo-button">
+                <input type="button" class="btn btn-secondary" value="View Commits" ng-click="projects.openCommitsModal(repo)"/>
+            </div>
+        </div>
+    </div>
+
+</div>

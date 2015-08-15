@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="github-explorer">
+<head>
+    <title>Github Explorer</title>
+
+    <base href="/github-explorer">
+
+    [# styles.forEach( function ( file ) { #]
+    <link rel="stylesheet" type="text/css" href="[#= file #]"/>
+    [# }); #]
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- endbower -->
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <!-- endbower -->
+
+    [# scripts.forEach( function ( file ) { #]
+    <script type="text/javascript" src="/[#= file #]"></script>
+    [# }); #]
+
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body style="background-color: #fafafa" ng-controller="AppCtrl as app">
+<toaster-container toaster-options="{'time-out': 5000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
+<div class="container" style="width:960px; min-height:300px;" ui-view></div>
+<div>
+</div>
+</body>
+</html>
